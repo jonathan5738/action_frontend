@@ -19,10 +19,12 @@ jobs:
         run: npm run test
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: get code
         uses: actions/checkout@v6
+
       - name: install nodejs
         uses: actions/setup-node@v6
         with:
